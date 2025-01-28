@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head section as index.html -->
+</head>
+<body>
+    <!-- Include header and navigation -->
+
+    <section id="ragas" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Ragas & Taal</h2>
+            <p class="section-description">Explore the melodic frameworks and rhythmic patterns of Indian Classical Music</p>
+            
+            <div class="ragas-container">
+                <div class="raga-filters">
+                    <select id="timeFilter">
+                        <option value="all">All Times</option>
+                        <option value="morning">Morning</option>
+                        <option value="afternoon">Afternoon</option>
+                        <option value="evening">Evening</option>
+                        <option value="night">Night</option>
+                    </select>
+                    <select id="moodFilter">
+                        <option value="all">All Moods</option>
+                        <option value="peaceful">Peaceful</option>
+                        <option value="romantic">Romantic</option>
+                        <option value="devotional">Devotional</option>
+                        <option value="heroic">Heroic</option>
+                    </select>
+                </div>
+
+                <div class="ragas-grid">
+                    <div class="raga-card" data-time="morning" data-mood="peaceful">
+                        <h3>Raga Bhairav</h3>
+                        <div class="raga-details">
+                            <p>Time: Early Morning</p>
+                            <p>Mood: Serious, Devotional</p>
+                            <div class="raga-notation">
+                                <p>Aroha: Sa re♭ ga Ma Pa dha♭ ni Sa'</p>
+                                <p>Avaroha: Sa' ni dha♭ Pa Ma ga re♭ Sa</p>
+                            </div>
+                            <audio class="raga-audio" controls>
+                                <source src="Raga Bhairavi  Sitar and Tabla  Niladri Kumar and Subhankar Banerjee.mp3" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+
+                    <div class="raga-card" data-time="evening" data-mood="romantic">
+                        <h3>Raga Yaman</h3>
+                        <div class="raga-details">
+                            <p>Time: Evening</p>
+                            <p>Mood: Romantic, Peaceful</p>
+                            <div class="raga-notation">
+                                <p>Aroha: Ni re Ga ma# Pa Dha Ni Sa'</p>
+                                <p>Avaroha: Sa' Ni Dha Pa ma# Ga Re Sa</p>
+                            </div>
+                            <audio class="raga-audio" controls>
+                                <source src="Invocation (Raag Yaman Kalyan) - Divinity 2 - Flute - Sitar.mp3" type="audio/mp3">
+                            </audio>
+                        </div>
+                    </div>
+
+                    <!-- Add more raga cards as needed -->
+                </div>
+            </div>
+
+            <div class="taal-section">
+                <h3>Common Taals (Rhythm Patterns)</h3>
+                <div class="taal-grid">
+                    <div class="taal-card">
+                        <h4>Teental (16 beats)</h4>
+                        <div class="taal-visualization">
+                            <div class="taal-beats">
+                                <!-- Interactive beats visualization will be added via JavaScript -->
+                            </div>
+                        </div>
+                        <button class="play-taal-btn" data-taal="teental">Play Pattern</button>
+                    </div>
+
+                    <div class="taal-card">
+                        <h4>Jhaptaal (10 beats)</h4>
+                        <div class="taal-visualization">
+                            <div class="taal-beats">
+                                <!-- Interactive beats visualization will be added via JavaScript -->
+                            </div>
+                        </div>
+                        <button class="play-taal-btn" data-taal="jhaptaal">Play Pattern</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Include footer -->
+    <script src="scripts.js"></script>
+    <script>
+        // Add this to your existing JavaScript or create a new file
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const timeFilter = document.getElementById('timeFilter');
+            const moodFilter = document.getElementById('moodFilter');
+            const ragaCards = document.querySelectorAll('.raga-card');
+
+            function filterRagas() {
+                const selectedTime = timeFilter.value;
+                const selectedMood = moodFilter.value;
+
+                ragaCards.forEach(card => {
+                    const timeMatch = selectedTime === 'all' || card.dataset.time === selectedTime;
+                    const moodMatch = selectedMood === 'all' || card.dataset.mood === selectedMood;
+                    
+                    card.style.display = timeMatch && moodMatch ? 'block' : 'none';
+                });
+            }
+
+            timeFilter.addEventListener('change', filterRagas);
+            moodFilter.addEventListener('change', filterRagas);
+
+            // Taal visualization
+            const taalButtons = document.querySelectorAll('.play-taal-btn');
+            
+            taalButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const taalType = this.dataset.taal;
+                    const visualizer = this.parentElement.querySelector('.taal-beats');
+                    
+                    // Add beat visualization logic here
+                    visualizeTaal(taalType, visualizer);
+                });
+            });
+
+            function visualizeTaal(taalType, container) {
+                const patterns = {
+                    'teental': [4, 4, 4, 4],
+                    'jhaptaal': [2, 3, 2, 3]
+                };
+
+                const pattern = patterns[taalType];
+                container.innerHTML = '';
+
+                pattern.forEach((beats, index) => {
+                    const section = document.createElement('div');
+                    section.className = 'taal-section';
+                    
+                    for(let i = 0; i < beats; i++) {
+                        const beat = document.createElement('div');
+                        beat.className = 'beat';
+                        section.appendChild(beat);
+                    }
+                    
+                    container.appendChild(section);
+                });
+            }
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Classical Music - Analysis and Synthesis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Montserrat:wght@400;700&display=swap" 
+        rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- Background Video -->
+    <div class="background-video">
+        <video autoplay muted loop id="bg-video">
+            <source src="6594733-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Background Audio -->
+    <audio autoplay loop id="bg-audio" muted>
+        <source src="tabla-flute-106-262274.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo">Indian Classical Music</div>
+        <nav class="nav">
+            <input type="checkbox" id="nav-check">
+            <label for="nav-check" class="nav-toggle">
+                <i class="fas fa-bars"></i>
+            </label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="ragas.html">Ragas & Taal</a></li>
+                <li><a href="instruments.html">Instruments</a></li>
+                <li><a href="theory.html">Theory</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Experience the Soul of Indian Classical Music</h1>
+            <p>Journey through centuries of musical tradition that touches hearts and transforms lives</p>
+            <a href="#about" class="cta-button">Start Your Musical Journey</a>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section id="analysis" class="section-padding">
+        <div class="container">
+            <h2 class="section-title">Analyze Your Music</h2>
+            <div class="analysis-tools">
+                <div class="upload-section">
+                    <h3>Upload Audio File</h3>
+                    <input type="file" id="audioFileInput" accept="audio/*" class="file-input">
+                    <button id="analyzeButton" class="analyze-button">Analyze Audio</button>
+                </div>
+                <div class="live-recording">
+                    <h3>Live Recording</h3>
+                    <button id="startRecording" class="record-button">Start Recording</button>
+                    <button id="stopRecording" class="record-button" disabled>Stop Recording</button>
+                </div>
+                <div class="analysis-results">
+                    <div id="rhythmPattern" class="result-card">
+                        <h4>Rhythm Analysis</h4>
+                        <div class="visualization"></div>
+                    </div>
+                    <div id="ragaPattern" class="result-card">
+                        <h4>Raga Pattern</h4>
+                        <div class="visualization"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Sections: About, Ragas, Instruments, Theory, and Contact -->
+    <!-- (Omitted for brevity, but structure remains the same as your original code) -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Indian Classical Music. Preserving tradition, touching hearts.</p>
+            <p class="footer-quote">"Music is the language of the spirit. It opens the secret of life bringing peace, abolishing strife." - Kahlil Gibran</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
